@@ -4,14 +4,10 @@ services:
     env: docker
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
-    plan: starter
-    disk:
-      name: search-data
-      mountPath: /app/data
-      sizeGB: 5
+    plan: free
     envVars:
       - key: DATA_DIR
-        value: /app/data
+        value: ./data
       - key: ALLOWED_ORIGINS
         value: "*"
       - key: EMBEDDING_BATCH_SIZE

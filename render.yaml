@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: vortex-search-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: starter
+    disk:
+      name: search-data
+      mountPath: /app/data
+      sizeGB: 5
+    envVars:
+      - key: DATA_DIR
+        value: /app/data
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: EMBEDDING_BATCH_SIZE
+        value: 16

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: search_engine_backend
+    environment:
+      - DATA_DIR=/app/data
+      - ALLOWED_ORIGINS=*
+      - EMBEDDING_BATCH_SIZE=16
+    volumes:
+      - search_data:/app/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+volumes:
+  search_data:
+    driver: local

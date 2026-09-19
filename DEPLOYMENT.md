@@ -1,4 +1,4 @@
-# Cloud Deployment Guide — Vortex Search Engine
+# Cloud Deployment Guide — Reddy-dev Search Engine
 
 This repository is fully configured for cloud deployment across leading PaaS platforms:
 - **Backend**: [Render](https://render.com) or [Railway](https://railway.app) (Docker + Persistent Volume for SQLite & ChromaDB)
@@ -8,10 +8,10 @@ This repository is fully configured for cloud deployment across leading PaaS pla
 
 ## Step 1: Push Code to GitHub
 
-Create a new repository on GitHub (e.g. `vortex-search-engine`) and link this local Git repository:
+Create a new repository on GitHub (e.g. `Reddy-dev-Search-Engine`) and link this local Git repository:
 
 ```powershell
-git remote add origin https://github.com/<your-username>/vortex-search-engine.git
+git remote add origin https://github.com/<your-username>/Reddy-dev-Search-Engine.git
 git branch -M main
 git push -u origin main
 ```
@@ -25,9 +25,9 @@ git push -u origin main
 We already added `render.yaml` to the repository, which sets up the Docker service with a persistent 5GB volume for the SQLite database and ChromaDB vector store.
 
 1. Go to [dashboard.render.com](https://dashboard.render.com) and click **"New" &rarr; "Blueprint"**.
-2. Connect your GitHub repository `vortex-search-engine`.
+2. Connect your GitHub repository `Reddy-dev-Search-Engine`.
 3. Render will detect `render.yaml` and configure:
-   - **Service Name**: `vortex-search-backend`
+   - **Service Name**: `reddy-dev-search-backend`
    - **Dockerfile**: `backend/Dockerfile`
    - **Environment Variables**:
      - `DATA_DIR`: `/app/data`
@@ -35,7 +35,7 @@ We already added `render.yaml` to the repository, which sets up the Docker servi
      - `EMBEDDING_BATCH_SIZE`: `16`
    - **Persistent Disk**: 5 GB mounted at `/app/data`
 4. Click **Apply**. Once deployed, Render will provide your public backend URL, e.g.:
-   `https://vortex-search-backend.onrender.com`
+   `https://reddy-dev-search-backend.onrender.com`
 
 ---
 
@@ -64,9 +64,9 @@ We already added `render.yaml` to the repository, which sets up the Docker servi
    - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
 4. In **Environment Variables**, add:
-   - `VITE_API_BASE_URL`: `https://vortex-search-backend.onrender.com` *(use your actual backend URL from Step 2)*
+   - `VITE_API_BASE_URL`: `https://reddy-dev-search-backend.onrender.com` *(use your actual backend URL from Step 2)*
 5. Click **Deploy**.
-6. Vercel will build and assign you a live production URL, e.g. `https://vortex-search.vercel.app`.
+6. Vercel will build and assign you a live production URL, e.g. `https://reddy-dev-search.vercel.app`.
 
 ---
 

@@ -95,7 +95,7 @@ export default function App() {
           </div>
           <div>
             <h1 className="text-base font-bold bg-gradient-to-r from-sky-400 via-indigo-300 to-white bg-clip-text text-transparent">
-              Vortex Engine
+              Reddy-dev Search Engine
             </h1>
             <p className="text-[10px] text-slate-500 font-mono">Hybrid Lexical & Vector Search</p>
           </div>

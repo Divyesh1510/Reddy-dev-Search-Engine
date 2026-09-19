@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vortex-search-backend
+    name: reddy-dev-search-backend
     env: docker
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend

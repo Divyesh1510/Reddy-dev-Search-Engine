@@ -13,7 +13,7 @@ logging.basicConfig(
 logger = logging.getLogger("main")
 
 app = FastAPI(
-    title="Modular Hybrid Search Engine API",
+    title="Reddy-dev Search Engine API",
     description="Production-ready search engine with SQLite FTS5 (BM25) lexical index, ChromaDB vector semantic search, RRF ranker, and async crawler.",
     version="1.0.0"
 )
@@ -35,7 +35,7 @@ app.include_router(stats_router)
 @app.get("/")
 async def root():
     return {
-        "service": "Modular Hybrid Search Engine",
+        "service": "Reddy-dev Search Engine",
         "status": "online",
         "data_dir": DATA_DIR,
         "docs_url": "/docs"
